@@ -1,5 +1,13 @@
 <section class="user-section">
-  <h2><%= "Name: #{@user.name}" %></h2>
+  <h2><%= "Name: #{@user.name}" %>
+  <% if @user != current_user %>
+  <span>
+  <% if !current_user.friend?(@user) %>
+    <%= link_to 'Add friend', sendrequest_path(@user.id), method: 'post', class: 'btn btn-success' %>
+   <% end %>
+  </span>
+  <% end %>
+  </h2>
   <article class="timeline">
     <h3>Recent posts:</h3>
     <ul class="posts">
