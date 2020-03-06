@@ -7,7 +7,7 @@ RSpec.describe 'Friendship feature', type: :feature do
     has_x
   end
 
-  let(:user_valid) do
+  let(:user_valid2) do
     has_x = { name: 'jay', email: 'jay@gmail.com' }
     has_x[:password] = 'jayjay'
     has_x[:password_confirmation] = 'jayjay'
@@ -35,17 +35,12 @@ RSpec.describe 'Friendship feature', type: :feature do
     Friendship.create(user_id: user.id, friend_id: user2.id, confirmed: true)
     Friendship.create(user_id: user2.id, friend_id: user.id, confirmed: true)
 
-    user3 = User.create(user_valid3)
-
     post1 = user.posts.create(content: 'this is a post')
     post2 = user2.posts.create(content: '2 this is a post 2')
-
-    post3 = user3.posts.create(content: '3 this is a post 3')
 
     visit root_path
 
     expect(page).to have_content post1.content
     expect(page).to have_content post2.content
   end
-  
 end
