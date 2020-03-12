@@ -9,7 +9,6 @@ class FriendshipsController < ApplicationController
     if Friendship.where(user_id: params[:user_id], friend_id: params[:friend_id], confirmed: false).exists? == false
 
       @friendship = Friendship.new(user_id: params[:user_id], friend_id: params[:friend_id], confirmed: false)
-
       if @friendship.save
         redirect_to users_path, notice: 'Friendship request sent'
       else
@@ -40,9 +39,9 @@ class FriendshipsController < ApplicationController
 
   def destroy
     friendship = Friendship.where(user_id: current_user.id, friend_id: params[:user_id]).first
-    mirror = Friendship.where(user_id: params[:user_id], friend_id: current_user.id).first
+    inverse = Friendship.where(user_id: params[:user_id], friend_id: current_user.id).first
     friendship&.delete
-    mirror&.delete
+    inverse&.delete
     redirect_to friendships_path
   end
 end
