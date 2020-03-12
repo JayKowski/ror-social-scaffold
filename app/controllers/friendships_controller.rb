@@ -11,12 +11,12 @@ class FriendshipsController < ApplicationController
       @friendship = Friendship.new(user_id: params[:user_id], friend_id: params[:friend_id], confirmed: false)
 
       if @friendship.save
-        redirect_to users_path, notice: 'You have requested a friendship.'
+        redirect_to users_path, notice: 'Friendship request sent'
       else
         redirect_to users_path, alert: 'Friend request wasnt created.'
       end
     else
-      redirect_to users_path, notice: 'you already send a request ok?, chill out.'
+      redirect_to users_path, notice: 'Friendship request can only be created once.'
     end
   end
 
@@ -31,19 +31,18 @@ class FriendshipsController < ApplicationController
       inverse.confirmed = true
     end
 
-      if friendship.save and inverse.save
-      redirect_to friendships_path, notice: 'You guys are friends now.'
+    if friendship.save and inverse.save
+      redirect_to friendships_path, notice: 'This is a new Friendship!'
     else
-      redirect_to users_path, alert: 'Something happened!!!!!!!!!!!.'
+      redirect_to users_path, alert: 'Something went wrong'
     end
-
   end
 
   def destroy
     friendship = Friendship.where(user_id: current_user.id, friend_id: params[:user_id]).first
     mirror = Friendship.where(user_id: params[:user_id], friend_id: current_user.id).first
-    friendship.delete if friendship
-    mirror.delete if mirror
+    friendship&.delete
+    mirror&.delete
     redirect_to friendships_path
   end
 end
