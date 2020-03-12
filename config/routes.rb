@@ -15,7 +15,9 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :destroy]
   end
   
-  resources :friendships, except: [:edit, :show]
+  resources :friendships, except: [:edit, :show, :delete]
+  post 'accept_friend', action: :update, controller: 'friendships'
+  delete 'delete_request', action: :destroy, controller: 'friendships'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
