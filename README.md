@@ -65,7 +65,7 @@ Deployed on March 13, Friday 2020 - on Heroku
 
 ## Authors
 
-TBA
+Created by [@Elijah Obominuru](https://github.com/Elijahscriptdev) and [@Judah Maina](https://github.com/JayKowski) - feel free to contact us!
 
 ## 🤝 Contributing
 
