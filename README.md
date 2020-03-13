@@ -9,7 +9,9 @@
 
 ## Live Demo
 
-TBA
+Find below attatched a link to the live version of the app
+
+### https://micro-social-app.herokuapp.com/users/sign_in
 
 
 ## Getting Started
@@ -59,9 +61,7 @@ Open `http://localhost:3000/` in your browser.
 
 ### Deployment
 
-Find below attatched a link to the live version of the app
-
-### https://micro-social-app.herokuapp.com/users/sign_in
+Deployed on March 13, Friday 2020 - on Heroku 
 
 ## Authors
 
