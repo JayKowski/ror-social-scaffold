@@ -10,6 +10,11 @@
       <% elsif !current_user.friend?(@user) %>
         <%= link_to 'Add friend', sendrequest_path(@user.id), method: 'post', class: 'btn btn-success' %>
     <% end %>  
+  <span>
+  <% if !current_user.friend?(@user) %>
+    <%= link_to 'Add friend', sendrequest_path(@user.id), method: 'post', class: 'btn btn-success' %>
+   <% end %>
+  </span>
   <% end %>
   </h2>
   <article class="timeline">

@@ -14,17 +14,19 @@ class User < ApplicationRecord
   has_many :inverse_friendships, class_name: 'Friendship', foreign_key: 'friend_id', dependent: :destroy
 
   def friends
-    friends_array = friendships.map { |friendship| friendship.friend if friendship.confirmed }
-    friends_array += inverse_friendships.map { |friendship| friendship.user if friendship.confirmed }
-    friends_array.compact
+    my_friends = friendships.map(&:friend_id) & inverse_friendships.map(&:user_id)
+    friend_ids = User.where(id: my_friends)
+    friend_ids
   end
 
   def pending_friends
-    friendships.map { |friendship| friendship.friend unless friendship.confirmed }.compact
+    friendships.map(&:friend) - inverse_friendships.map(&:user)
   end
 
   def friend_requests
-    inverse_friendships.map { |friendship| friendship.user unless friendship.confirmed }.compact
+    requests = inverse_friendships.map(&:user_id) - friendships.map(&:friend_id)
+    request_ids = User.where(id: requests)
+    request_ids
   end
 
   def remove_inverse_friend(friend)
