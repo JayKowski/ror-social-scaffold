@@ -59,7 +59,9 @@ Open `http://localhost:3000/` in your browser.
 
 ### Deployment
 
-TBA
+Find below attatched a link to the live version of the app
+
+### https://micro-social-app.herokuapp.com/users/sign_in
 
 ## Authors
 
