@@ -29,7 +29,7 @@ $divider-color: #bdbdbd;
 }
 
 body {
-    background: #fff;
+    background: #F0F2F5;
     position: relative;
     font-family: "Roboto", sans-serif;
     font-weight: 400;
@@ -54,7 +54,8 @@ a {
     display: flex;
     justify-content: space-between;
     padding: 16px 48px;
-    background-color: $primary-color-dark;
+    // background-color: $primary-color-dark;
+    background-image: linear-gradient(#04519b, #044687 60%, #033769);
     color: $primary-color-light;
     .menu {
         width: 80%;
@@ -110,6 +111,10 @@ a {
 .errors {
     font-size: 10px;
     color: red;
+}
+
+.center {
+    margin: 5rem auto;
 }
 
 // form {
@@ -334,3 +339,77 @@ a {
   padding: .75rem 1rem; }
   .card-heading .card-title {
     margin-bottom: 0; }
+
+    .bubble {
+  position: relative;
+  min-height: 4rem;
+  padding: 1rem;
+  background: #fff;
+  border-radius: .75rem;
+  border: 1px solid #ccc; }
+
+.bubble:after {
+  content: '';
+  position: absolute;
+  border-style: solid;
+  border-width: 15px 15px 15px 0;
+  border-color: transparent white;
+  display: block;
+  width: 0;
+  z-index: 1;
+  margin-top: -15px;
+  left: -15px;
+  top: 50%; }
+
+.bubble:before {
+  content: '';
+  position: absolute;
+  border-style: solid;
+  border-width: 15px 15px 15px 0;
+  border-color: transparent #ccc;
+  display: block;
+  width: 0;
+  z-index: 0;
+  margin-top: -15px;
+  left: -16px;
+  top: 50%; }
+
+// .post-actions {
+//   margin: .313rem; }
+
+// .comment-form .form-group {
+//   width: calc(100% - 56px);
+//   margin-bottom: 0; }
+
+// .comment-form input[type='text'] {
+//   width: 80%; }
+
+// .caard-body {
+//     border-radius: 20px;
+// }
+
+// .comment-avatar img {
+//   width: 2.5rem;
+//   margin-right: .313rem; }
+
+//   .comment-form .comment-each {
+//       border: 1px solid #ccc;
+//       border-width: 100%;
+//     //   width: 100%;
+//   }
+// .comment {
+// //   border: 1px solid #ccc;
+//   border-radius: .313rem;
+//   padding: .25rem;
+//   margin: .313rem 0;
+//   overflow: auto;
+// //   width: 100%; 
+// }
+
+.post-comments {
+    border: 2px solid #ccc;
+    border-radius: .313rem;
+    padding: 10px;
+    margin: 5px 0px;
+    background-color: white;
+}

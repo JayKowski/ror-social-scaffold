@@ -8,6 +8,7 @@ class PostsController < ApplicationController
   end
 
   def index
+    # @user = current_user
     @post = Post.new
     timeline_posts
     @user_timeline = current_user.user_timeline
