@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root 'posts#index'
-
+  get 'home', to: 'posts#home'
   devise_for :users
 
    post 'user/sendrequest/:id', to: 'users#send_request', as: 'sendrequest'

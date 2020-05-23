@@ -1,6 +1,12 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
 
+  def home
+    @post = Post.new
+    timeline_posts
+    @user_timeline = current_user.user_timeline
+  end
+
   def index
     @post = Post.new
     timeline_posts
