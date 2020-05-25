@@ -10,10 +10,6 @@
                         <%= form_for @post, html: { multipart: true } do |form| %>
                         <% form.label :content %>
                         <%= form.text_area :content, id: :post_content, class: 'form-control', placeholder: 'Write on the wall', size: "colsxrols" %>
-                        <p>
-                            <%# form.file_field :image %>
-                            <%# form.hidden_field :image_cache %>
-                        </p>
                         <% if @post.errors.full_messages.any? %>
                         <p class="errors">
                             <%= "Post could not be saved. #{@post.errors.full_messages.join('. ')}" %>
@@ -49,8 +45,23 @@
                     </article>
                 </div>
             </div>
-            <div class="col-lg-4">
-
+            <div class="col-lg-4 center">
+                <div class="card friends">
+                    <div class="card-heading">
+                        <h6 class="card-title">
+                            My Friends
+                        </h6>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-inline-item">
+                            <% @users.each do |user| %>
+                            <% if current_user.friend?(user) %>
+                            <li><%=  image_tag user.image.thumb.url, class: " profile-pic " %></li>
+                            <% end %>
+                            <% end %>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
