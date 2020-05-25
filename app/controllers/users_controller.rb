@@ -6,6 +6,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @users = User.all
+    @friends = current_user.friends
     @user = User.find(params[:id])
     @posts = @user.posts.ordered_by_most_recent
   end

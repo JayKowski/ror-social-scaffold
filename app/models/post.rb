@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+  default_scope { order(created_at: :desc) }
   validates :content, presence: true, length: { maximum: 1000,
                                                 too_long: '1000 characters in post is the maximum allowed.' }
 
@@ -7,4 +8,6 @@ class Post < ApplicationRecord
   scope :ordered_by_most_recent, -> { order(created_at: :desc) }
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
+
+  mount_uploader :image, ImageUploader
 end
