@@ -32,6 +32,16 @@ class ImageUploader < CarrierWave::Uploader::Base
     resize_to_fit(60, 60)
   end
 
+  # Generate a 164x164 JPG of 80% quality 
+  version :simple do
+    process :resize_to_fit => [164, 164]
+  end
+
+  # version :standard do
+  #   process :eager => true
+  #   process :resize_to_fill => [100, 150, :north]          
+  # end
+
   # Create different versions of your uploaded files:
   # version :thumb do
   #   process resize_to_fit: [65, 65]

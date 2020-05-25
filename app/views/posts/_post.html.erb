@@ -39,7 +39,7 @@
                 <div class="comment">
                     <%= form_for(post.comments.new, url: post_comments_path(post)) do |form| %>
                     <%= form.text_area :content, id: :comment_content, class: 'form-control comment', placeholder: 'Add new Comment' %>
-                    <%= form.submit 'Comment', class: 'btn btn-secondary form-control my-1' %>
+                    <%= form.submit 'Comment', class: 'btn btn-secondary form-control my-1 mx-auto' %>
                     <% end %>
                 </div>
             </div>

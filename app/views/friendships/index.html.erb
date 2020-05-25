@@ -23,7 +23,7 @@
                 <% @friend_requests.each do |request| %>
                 <ul>
                     <li>
-                        <%= image_tag request.image.url, class:"img-thumbnail" %>
+                        <%= image_tag request.image.simple.url, class:"img-thumbnail img-fluid" %>
                         <b><%= link_to request.name, user_path(request)%></b> <%= link_to 'Accept', accept_friend_path(user_id: request.id, friend_id: current_user.id), method: 'post', class: 'btn btn-success' %> <%= link_to 'Delete', delete_request_path(user_id: request.id), method: 'delete', class: 'btn btn-danger' %> </li>
                 </ul>
                 <% end %>
