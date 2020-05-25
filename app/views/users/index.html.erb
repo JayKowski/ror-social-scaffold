@@ -10,7 +10,9 @@
             <span class="profile-link">
                 <%= link_to 'See Profile',  user_path(user), class: 'profile-link' %>
             </span>
-            <%# image_tag user.image.url %>
+            <% if user.image.url.present? %>
+            <%= image_tag user.image.thumb.url %>
+            <% end %>
             <% if user != current_user %>
             <% if current_user.friend?(user) %>
             <em class='text-primary'>You're friends</em>

@@ -1,53 +1,46 @@
 <div class="card-body">
 
     <div class="row">
-        <div class="col-sm-2 thumbnail ">
-            <%# link_to post.user.name, user_path(post.user), class: 'post-author' %>
+        <div class="col">
             <div class="bg-white p-3">
-                <%# image_tag @user.image.url, class:"img-fluid" %>
-                <a class="post-avatar thumbnail" href="#">
-                    <%# image_tag @user.image.url, class:"img-fluid" %>
-                    <div class="text-center">
-                        <%= link_to post.user.name, user_path(post.user), class: 'post-author' %>
-                    </div>
-                </a>
-                <div class="text-center"><%= like_or_dislike_btn(post)%></div>
-            </div>
-        </div>
-
-        <div class="col-sm-10">
-            <div class="bubble">
-                <div class="pointer">
-                    <p><%= post.content %></p>
+                <div class="profile">
+                    <%=  image_tag post.user.image.thumb.url, class: " profile-pic " %>
+                    <%= link_to post.user.name, user_path(post.user), class: 'post-author' %>
+                    <small class="text-muted">
+                        <%= time_ago_in_words post.created_at %>
+                    </small>
                 </div>
-                <div class="col thumbnail">
-                    <%= image_tag  post.image.url, class: "img-fluid" %>
-                </div>
-                <div class="pointer-border"></div>
-            </div>
-            <!--bubble end -->
-            <div class="comment-form">
-                <div class="form-inlin">
-                    <div class="form-grou">
 
-                        <% post.comments.each do |comment| %>
-                        <div class="post-comments">
-                            <b><%= comment.user.name %>:</b> <%= comment.content %><br>
+                <p><%= post.content %></p>
+                <%= image_tag  post.image.url, class: "img-fluid" %>
+
+                <div class="text-center my-2">
+                    <%= like_or_dislike_btn(post) %>
+                </div>
+
+                <% post.comments.each do |comment| %>
+                <div class="post-comments  mb-2">
+                    <div class="row">
+                        <div class="col-1">
+                            <%=  image_tag comment.user.image.thumb.url, class: " profile-pic " %>
+                        </div>
+                        <div class="col-11 comment-bg">
+                            <b><%= link_to comment.user.name, user_path(comment.user) %>:</b> <%= comment.content %><br>
                             <small> <%= comment.created_at.strftime("%Y/%m/%d") %> </small>
                         </div>
-                        <% end %>
-
-                        <div class="comment">
-                            <%= form_for(post.comments.new, url: post_comments_path(post)) do |form| %>
-                            <%= form.text_field :content, id: :comment_content, class: 'form-control comment', placeholder: 'Add new Comment' %>
-                            <span><%= form.submit 'Comment', class: 'btn btn-secondary' %> </span>
-                            <% end %>
-                        </div>
                     </div>
                 </div>
+                <% end %>
+                <div class="comment">
+                    <%= form_for(post.comments.new, url: post_comments_path(post)) do |form| %>
+                    <%= form.text_area :content, id: :comment_content, class: 'form-control comment', placeholder: 'Add new Comment' %>
+                    <%= form.submit 'Comment', class: 'btn btn-secondary form-control my-1' %>
+                    <% end %>
+                </div>
             </div>
-            <!-- comment form end -->
         </div>
 
     </div>
+
+
 </div>
