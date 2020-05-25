@@ -1,7 +1,16 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
 
+  def home
+    @post = Post.new
+    timeline_posts
+    @user_timeline = current_user.user_timeline
+  end
+
   def index
+    @friends = current_user.friends
+    @users = User.all
+    # @user = current_user
     @post = Post.new
     timeline_posts
     @user_timeline = current_user.user_timeline
@@ -25,6 +34,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:content)
+    params.require(:post).permit(:content, :image, :image_cache)
   end
 end

@@ -1,31 +1,51 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 center bg-white p-3">
 
-    <div>Friends(<%= @friends.count %>)</div>
-    <div>
-        <% if @friends.empty?%>
-            <p>You have no friends</p>
-        <% end %>
-        <div>
-        <% @friends.each do |friend| %>
-            <ul>
-                <li><%= link_to 'Unfriend', delete_request_path(user_id: friend.id, friend_id: current_user.id), method: 'delete', class: 'btn btn-danger'%> <%= link_to friend.name, user_path(friend)%></li>
-            </ul>
-        <% end %>
+            <div>Friends(<%= @friends.count %>)</div>
+            <div>
+                <% if @friends.empty?%>
+                <p>You have no friends</p>
+                <% end %>
+                <div>
+                    <% @friends.each do |friend| %>
+                    <ul>
+                        <li><%= link_to 'Unfriend', delete_request_path(user_id: friend.id, friend_id: current_user.id), method: 'delete', class: 'btn btn-danger'%> <%= link_to friend.name, user_path(friend)%></li>
+                    </ul>
+                    <% end %>
+                </div>
+            </div>
+            <div>Friend Requests <%= (@friend_requests.count) %></div>
+            <div>
+                <% if @friend_requests.empty?%>
+                <p>You have no friend requests</p>
+                <% end %>
+                <% @friend_requests.each do |request| %>
+                <ul>
+                    <li>
+                        <%= image_tag request.image.url, class:"img-thumbnail" %>
+                        <b><%= link_to request.name, user_path(request)%></b> <%= link_to 'Accept', accept_friend_path(user_id: request.id, friend_id: current_user.id), method: 'post', class: 'btn btn-success' %> <%= link_to 'Delete', delete_request_path(user_id: request.id), method: 'delete', class: 'btn btn-danger' %> </li>
+                </ul>
+                <% end %>
+            </div>
+        </div>
+        <div class="col-lg-4 center fixed">
+            <div class="card friends">
+                <div class="card-heading">
+                    <h6 class="card-title">
+                        My Friends(<%= @friends.count %>)
+                    </h6>
+                </div>
+                <div class="card-body friend">
+                    <ul class="list-inline">
+                        <% @users.each do |user| %>
+                        <% if current_user.friend?(user) %>
+                        <li class="list-inline-item"><a href="<%= user_path(user)%>"><%= image_tag user.image.url, class: "img-thumbnail img-fluid" %></a></li>
+                        <% end %>
+                        <% end %>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-  <div>Friend Requests <%= (@friend_requests.count) %></div>
-    <div>
-        <% if @friend_requests.empty?%>
-            <p>You have no friend requests</p>
-        <% end %>
-        <% @friend_requests.each do |request| %>
-            <ul>
-                <li> From <%= link_to request.name, user_path(request)%>
-                    <div>
-                        <%= link_to 'Accept', accept_friend_path(user_id: request.id, friend_id: current_user.id), method: 'post', class: 'btn btn-success' %>
-                        
-                        <%= link_to 'Delete', delete_request_path(user_id: request.id), method: 'delete', class: 'btn btn-danger' %>
-                    </div>
-                </li>
-            </ul>
-        <% end %>
-    </div>              

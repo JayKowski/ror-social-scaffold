@@ -1,15 +1,19 @@
 <section>
-    <div class="container ">
+    <div class="container">
         <div class="row">
-            <div class="col-lg-7 center">
+            <div class="col-lg-8">
                 <div class="card">
                     <div class="card-heading">
-                        <h6 class="card-title">Wall</h6>
+                        <h6 class="card-title">wall</h6>
                     </div>
                     <div class="card-body">
                         <%= form_for @post, html: { multipart: true } do |form| %>
                         <% form.label :content %>
                         <%= form.text_area :content, id: :post_content, class: 'form-control', placeholder: 'Write on the wall', size: "colsxrols" %>
+                        <p>
+                            <%# form.file_field :image %>
+                            <%# form.hidden_field :image_cache %>
+                        </p>
                         <% if @post.errors.full_messages.any? %>
                         <p class="errors">
                             <%= "Post could not be saved. #{@post.errors.full_messages.join('. ')}" %>
@@ -30,38 +34,19 @@
                         <% end %>
                     </div>
                 </div>
-                <div class="car post">
+                <div class="card post">
                     <article class="timeline">
-                        <%
-=begin%>
                         <h3>
                             Recent posts
                         </h3>
-                        <%
-=end%>
-                        <ul class="posts ">
+                        <ul class="posts">
                             <%= render @user_timeline %>
                         </ul>
                     </article>
                 </div>
             </div>
-            <div class="col-lg-4 center fixed">
-                <div class="card friends">
-                    <div class="card-heading">
-                        <h6 class="card-title">
-                            My Friends(<%= @friends.count %>)
-                        </h6>
-                    </div>
-                    <div class="card-body friend">
-                        <ul class="list-inline">
-                            <% @users.each do |user| %>
-                            <% if current_user.friend?(user) %>
-                            <li class="list-inline-item"><a href="<%= user_path(user)%>"><%= image_tag user.image.url, class: "img-thumbnail img-fluid" %></a></li>
-                            <% end %>
-                            <% end %>
-                        </ul>
-                    </div>
-                </div>
+            <div class="col-lg-4">
+
             </div>
         </div>
     </div>
