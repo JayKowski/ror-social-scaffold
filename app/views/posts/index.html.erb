@@ -56,7 +56,9 @@
                         <ul class="list-inline">
                             <% @users.each do |user| %>
                             <% if current_user.friend?(user) %>
+                            <% if user.image.url.present? %>
                             <li class="list-inline-item"><a href="<%= user_path(user)%>"><%= image_tag user.image.url, class: "img-thumbnail img-fluid" %></a></li>
+                            <% end %>
                             <% end %>
                             <% end %>
                         </ul>

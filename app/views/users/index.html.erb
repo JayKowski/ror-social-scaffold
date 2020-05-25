@@ -11,7 +11,7 @@
                 <%= link_to 'See Profile',  user_path(user), class: 'profile-link' %>
             </span>
             <% if user.image.url.present? %>
-            <%= image_tag user.image.thumb.url %>
+            <%= image_tag user.image.thumbnail.url %>
             <% end %>
             <% if user != current_user %>
             <% if current_user.friend?(user) %>
