@@ -135,9 +135,27 @@ a {
     margin-bottom: 0; }
 
 .profile-pic {
-    border-radius: 40%;
+    border-radius: 50%;
 }
 
+.friends {
+  margin: 0 -.313rem 1.4rem; }
+  .friends .list-inline {
+    text-align: center; }
+  .friends li {
+    margin: 0;
+    padding: .25rem .313rem; }
+  .friends img {
+    width: 4rem; }
+
+.friend {
+    padding: 0!important;
+}
+
+.fixed {
+    content: "";
+    // position: fixed;
+}
 // form {
 //     width: 80%;
 //     margin: 8px 0;

@@ -22,7 +22,7 @@
                 <div class="post-comments  mb-2">
                     <div class="row">
                         <div class="col-2">
-                            <%=  image_tag comment.user.image.thumb.url, class: " profile-pic " %>
+                            <%=  image_tag comment.user.image.thumb.url, class: " profile-pic img-thumbnail" %>
                         </div>
                         <div class="col-10 comment-bg">
                             <b><%= link_to comment.user.name, user_path(comment.user) %>:</b> <%= comment.content %><br>

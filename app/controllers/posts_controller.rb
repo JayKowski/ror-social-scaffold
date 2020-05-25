@@ -8,6 +8,7 @@ class PostsController < ApplicationController
   end
 
   def index
+    @friends = current_user.friends
     @users = User.all
     # @user = current_user
     @post = Post.new
