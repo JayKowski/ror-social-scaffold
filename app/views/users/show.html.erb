@@ -1,6 +1,8 @@
 <section class="user-section">
     <h2><%= "Name: #{@user.name}" %>
+        <% if @user == current_user %>
         <%= link_to  "Edit profile", edit_user_registration_path, class:"btn btn-secondary" %>
+        <% end %>
         <% if @user != current_user %>
         <% if current_user.friend?(@user) %>
         <em class='text-primary'>You're friends</em>

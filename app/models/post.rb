@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+  default_scope { order(created_at: :desc) }
   validates :content, presence: true, length: { maximum: 1000,
                                                 too_long: '1000 characters in post is the maximum allowed.' }
 
