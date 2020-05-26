@@ -1,26 +1,22 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8">
-            <section class="user-section">
+            <section class="user-section mt-5">
                 <h2><%= "Name: #{@user.name}" %>
                     <% if @user == current_user %>
-                    <%= link_to  "Edit profile", edit_user_registration_path, class:"btn btn-secondary" %>
+                    <%= link_to  "Edit profile", edit_user_registration_path, class:"btn btn-outline-secondary" %>
                     <% end %>
                     <% if @user != current_user %>
                     <% if current_user.friend?(@user) %>
-                    <em class='text-primary'>You're friends</em>
+                    <small class="bg-success p-2"><em class='text-white'>You're friends</em></small>
                     <% elsif current_user.pending_friends.include?(@user) %>
-                    <em class='text-danger'> Pending request </em>
+                    <small class="bg-danger p-2"><em class='text-white'> Pending request </em></small>
                     <% elsif current_user.friend_requests.include?(@user) %>
-                    <%= link_to 'Confirm friend', recieverequest_path(@user), method: 'post', class: 'btn btn-success' %>
+                    <%= link_to 'Confirm friend', recieverequest_path(@user), method: 'post', class: 'btn btn-outline-success' %>
                     <% elsif !current_user.friend?(@user) %>
-                    <%= link_to 'Add friend', sendrequest_path(@user.id), method: 'post', class: 'btn btn-success' %>
+                    <%= link_to 'Add friend', sendrequest_path(@user.id), method: 'post', class: 'btn btn-outline-success' %>
                     <% end %>
-                    <span>
-                        <% if !current_user.friend?(@user) %>
-                        <%= link_to 'Add friend', sendrequest_path(@user.id), method: 'post', class: 'btn btn-success' %>
-                        <% end %>
-                    </span>
+
                     <% end %>
                 </h2>
                 <article class="timeline">
@@ -42,7 +38,9 @@
                     <ul class="list-inline">
                         <% @users.each do |user| %>
                         <% if current_user.friend?(user) %>
+                        <% if user.image.url.present? %>
                         <li class="list-inline-item"><a href="<%= user_path(user)%>"><%= image_tag user.image.url, class: "img-thumbnail img-fluid" %></a></li>
+                        <% end %>
                         <% end %>
                         <% end %>
                     </ul>

@@ -4,7 +4,9 @@
         <div class="col">
             <div class="bg-white p-3">
                 <div class="profile">
-                    <%=  image_tag post.user.image.thumb.url, class: " profile-pic " %>
+                    <% if post.user.image.thumbnail.url.present? %>
+                    <%=  image_tag post.user.image.thumbnail.url, class: " profile-pic img-thumbnail" %>
+                    <% end %>
                     <%= link_to post.user.name, user_path(post.user), class: 'post-author' %>
                     <small class="text-muted">
                         <%= time_ago_in_words post.created_at %>
@@ -12,8 +14,9 @@
                 </div>
 
                 <p><%= post.content %></p>
+                <% if post.image.url.present? %>
                 <%= image_tag  post.image.url, class: "img-fluid" %>
-
+                <% end %>
                 <div class="text-center my-2">
                     <%= like_or_dislike_btn(post) %>
                 </div>
@@ -22,7 +25,9 @@
                 <div class="post-comments  mb-2">
                     <div class="row">
                         <div class="col-2">
-                            <%=  image_tag comment.user.image.thumb.url, class: " profile-pic img-thumbnail" %>
+                            <% if comment.user.image.thumbnail.url.present? %>
+                            <%=  image_tag comment.user.image.thumbnail.url, class: " profile-pic img-thumbnail" %>
+                            <% end %>
                         </div>
                         <div class="col-10 comment-bg">
                             <b><%= link_to comment.user.name, user_path(comment.user) %>:</b> <%= comment.content %><br>
@@ -34,7 +39,7 @@
                 <div class="comment">
                     <%= form_for(post.comments.new, url: post_comments_path(post)) do |form| %>
                     <%= form.text_area :content, id: :comment_content, class: 'form-control comment', placeholder: 'Add new Comment' %>
-                    <%= form.submit 'Comment', class: 'btn btn-secondary form-control my-1' %>
+                    <%= form.submit 'Comment', class: 'btn btn-secondary form-control my-1 mx-auto' %>
                     <% end %>
                 </div>
             </div>
