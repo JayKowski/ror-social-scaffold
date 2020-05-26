@@ -11,7 +11,7 @@
 
 Find below attatched a link to the live version of the app
 
-### https://micro-social-app.herokuapp.com/users/sign_in
+### https://stayintouchwithme.herokuapp.com/
 
 ![](https://res.cloudinary.com/elijjaaahhhh/image/upload/v1590519361/signin_zlrg4w.png)
 
