@@ -13,6 +13,23 @@ Find below attatched a link to the live version of the app
 
 ### https://micro-social-app.herokuapp.com/users/sign_in
 
+![](images/signup.png)
+
+
+![](images/signin.png)
+
+
+![](images/wall.png)
+
+
+![](images/wallll.png)
+
+
+![](images/requests.png)
+
+
+![](images/showpage.png)
+
 
 ## Getting Started
 
@@ -84,4 +101,3 @@ TBA
 ## 📝 License
 
 TBA
-
