@@ -13,22 +13,22 @@ Find below attatched a link to the live version of the app
 
 ### https://micro-social-app.herokuapp.com/users/sign_in
 
-![](images/signup.png)
+![](https://res.cloudinary.com/elijjaaahhhh/image/upload/v1590519361/signin_zlrg4w.png)
 
 
-![](images/signin.png)
+![](https://res.cloudinary.com/elijjaaahhhh/image/upload/v1590519361/signup_songnl.png)
 
 
-![](images/wall.png)
+![](https://res.cloudinary.com/elijjaaahhhh/image/upload/v1590519363/wall_tgm7z6.png)
 
 
-![](images/wallll.png)
+![](https://res.cloudinary.com/elijjaaahhhh/image/upload/v1590519363/showpage_gymxfn.png)
 
 
-![](images/requests.png)
+![](https://res.cloudinary.com/elijjaaahhhh/image/upload/v1590519364/requests_r5liuk.png)
 
 
-![](images/showpage.png)
+![](https://res.cloudinary.com/elijjaaahhhh/image/upload/v1590519371/wallll_silgow.png)
 
 
 ## Getting Started
