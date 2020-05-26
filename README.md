@@ -11,7 +11,24 @@
 
 Find below attatched a link to the live version of the app
 
-### https://micro-social-app.herokuapp.com/users/sign_in
+### https://stayintouchwithme.herokuapp.com/
+
+![](https://res.cloudinary.com/elijjaaahhhh/image/upload/v1590519361/signin_zlrg4w.png)
+
+
+![](https://res.cloudinary.com/elijjaaahhhh/image/upload/v1590519361/signup_songnl.png)
+
+
+![](https://res.cloudinary.com/elijjaaahhhh/image/upload/v1590519363/wall_tgm7z6.png)
+
+
+![](https://res.cloudinary.com/elijjaaahhhh/image/upload/v1590519363/showpage_gymxfn.png)
+
+
+![](https://res.cloudinary.com/elijjaaahhhh/image/upload/v1590519364/requests_r5liuk.png)
+
+
+![](https://res.cloudinary.com/elijjaaahhhh/image/upload/v1590519371/wallll_silgow.png)
 
 
 ## Getting Started
@@ -84,4 +101,3 @@ TBA
 ## 📝 License
 
 TBA
-
